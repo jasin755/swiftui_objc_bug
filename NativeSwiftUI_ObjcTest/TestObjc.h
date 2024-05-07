@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(instancetype)initWithName:(NSString*)name isSelected:(BOOL)isSelected;
 -(BOOL)isEqual:(id)other;
+-(NSUInteger)hash;
+-(NSUInteger)hashValue;
 
 @end
 

@@ -26,6 +26,11 @@
 	}
 }
 
+- (NSUInteger)hashValue
+{
+	return self.name.hash;
+}
+
 - (NSUInteger)hash
 {
 	return self.name.hash;

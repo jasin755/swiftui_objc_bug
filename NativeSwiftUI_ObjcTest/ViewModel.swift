@@ -5,6 +5,25 @@ struct TestData {
 	let isSelected: Bool
 }
 
+class TestDataClass: Equatable {
+
+	let name: String
+	let isSelected: Bool
+
+	init(name: String, isSelected: Bool) {
+		self.name = name
+		self.isSelected = isSelected
+	}
+
+	static func == (lhs: TestDataClass, rhs: TestDataClass) -> Bool {
+		lhs.isSelected == rhs.isSelected && lhs.name == rhs.name
+	}
+}
+
+extension TestObjc: Identifiable {
+	public var id: String { name }
+}
+
 class ViewModel: ObservableObject {
 
 //	@Published
@@ -14,8 +33,22 @@ class ViewModel: ObservableObject {
 //		.init(name: "Third item", isSelected: false)
 //	]
 
+//	@Published
+//	var items: [TestObjc] = [
+//		.init(name: "First item", isSelected: false),
+//		.init(name: "Second item", isSelected: false),
+//		.init(name: "Third item", isSelected: false)
+//	]
+
+//	@Published
+//	var items: [TestDataClass] = [
+//		.init(name: "First item", isSelected: false),
+//		.init(name: "Second item", isSelected: false),
+//		.init(name: "Third item", isSelected: false)
+//	]
+
 	@Published
-	var items: [TestObjc] = [
+	var items: [TestDataClass] = [
 		.init(name: "First item", isSelected: false),
 		.init(name: "Second item", isSelected: false),
 		.init(name: "Third item", isSelected: false)
